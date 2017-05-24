@@ -6,8 +6,12 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   answerService.getAnswers(req.query.problemRefId, function(answers){
     userService.getAllUsers(function(allUsers){
-      for(var idx = 0; idx < answers.length; idx += 1) {
-        answers[idx].postedBy = allUsers[idx + 1];
+      for(var answerIndex = 0; answerIndex < answers.length; answerIndex += 1) {
+        allUsers.forEach(function(user, userIndex){
+          if(answers[answerIndex].postedBy == user.id){
+            answers[answerIndex].postedBy = user;
+          }
+        });
       }
       res.send(answers);
     });

@@ -8,10 +8,6 @@ var problemService = function() {
       assert.equal(error, null);
       callback(allProblems);
     });
-    /*mongoDbCollection.find({}).toArray(function(error, allProblems) {
-      assert.equal(error, null);
-      callback(allProblems);
-    });*/
   };
 
   var getProblemById = function(problemId, callback) {
