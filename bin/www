@@ -28,7 +28,7 @@ var server = http.createServer(app);
  *
  */
 //var MongoClient = require('mongodb').MongoClient;
-mongoose.connect('mongodb://localhost:27017/integration_test');
+mongoose.connect('mongodb://localhost:27017/stackoverflow');
 mongoDbHelper.mongoDatabase = mongoose.connection;
 mongoDbHelper.mongoDatabase.on('error', console.error.bind(console, 'connection error:'));
 mongoDbHelper.mongoDatabase.once('open', function() {
